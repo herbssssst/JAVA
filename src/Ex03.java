@@ -1,19 +1,36 @@
+import java.util.Scanner;
 
 public class Ex03 {
 
 	public static void main(String[] args) 
 	{
-		int a=10, b=3;
-		System.out.println(a==b); //false
-		System.out.println(a!=b); //true
-		System.out.println(!(a!=b)); //true
-		System.out.println((a>=b)&&(a==5)); //둘 다 만족해야 함, 
-		System.out.println((a>=b)||(a==5)); //둘 중 하나만 만족,
+		//1. 5개의 정수를 입력받아 배열에 저장하고 합과 평균을 구하세요
+		//2. 5개의 정수를 입력받아 배열에 저장하고 입력받은 정수 중 최대값 최솟값 출력
+		Scanner in = new Scanner(System.in);
+		int [] num = new int[5];
+		int sum=0;
 		
-		String s1=new String("oh");
-		String s2=new String("oh");
-		System.out.println(s1.equals(s2));
-
+		System.out.print("5개의 정수를 입력 :");
+		for(int i=0; i<5; i++)
+		{
+			num[i] = in.nextInt();
+			sum += num[i];
+		}
+		double avg = (double)sum / num.length;
+		System.out.println("합 :"+sum);
+		System.out.print("평균 :"+avg);
+				
+		int max=num[0], min=num[0]; //문제 2
+		for(int i=0; i<num.length; i++)
+		{
+			if(max<num[i])
+				max = num[i];
+			
+			if(min>num[i])
+				min = num[i];
+			
+		}
+		System.out.println(max);
 	}
 
 }

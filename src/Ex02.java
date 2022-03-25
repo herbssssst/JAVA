@@ -6,14 +6,28 @@ public class Ex02 {
 	{
 		Scanner in = new Scanner(System.in);
 		
-		System.out.print("오렌지의 개수를 입력하시오 : ");
-		int orange = in.nextInt();
-		
-		int box = orange/10;
-		int result = box % 10;
-		
-		System.out.println("박스의 개수는 :"+box+" 남은 오렌지 개수는:"+result);
-
+		while(true)
+		{
+			System.out.print("정수 입력 :");
+			int a=in.nextInt();
+			
+			if(a==0) break;
+			else if(a%2!=0)
+				System.out.println("홀수입니다");
+			else
+				System.out.println("짝수입니다");
+				
+		}
+		/*int sum=0;
+		System.out.print("5개의 정수 입력 :");
+		for(int i=0; i<5; i++)
+		{
+			int a=in.nextInt();
+			
+			if(a>=0) sum += a;
+			else continue;
+		}
+		System.out.print(sum);*/
 	}
 
 }
