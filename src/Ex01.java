@@ -1,52 +1,36 @@
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Ex01 {
 
-	public static void main(String[] args)
+	public static void main(String[] args) 
 	{
-		System.out.println("3개의 정수 입력 :");
+		ArrayList<Integer> num = new ArrayList<>();
+		/*num.add(10);
+		num.add(20);
+		num.add(30);
 		
-		Scanner in = new Scanner(System.in);
-		int su1 = in.nextInt();
-		int su2 = in.nextInt();
-		int su3 = in.nextInt();
-		int max;
+		//Integer를 사용해도 되지만, 객체에 들어가 있는 자료형을 써도 상관없음
+		for(int n:num) 
+			System.out.print(n+" ");*/
 		
-		if(su1>su2)
-			max=(su1>su3)?su1:su3;
-		else
-			max=(su2<su3)?su2:su3;
+		for(int i=0; i<=45; i++)
+			num.add(i);
 		
-		/*if(su1>su2)
+		/*for(int n:num)
+			System.out.print(n+" ");
+		System.out.println();*/
+		Collections.shuffle(num);
+		//int i=0;
+		/*for(int n:num)
 		{
-			if(su1>su3)
-				max=su1;
-			else
-				max=su3;
-		}
-		else
-		{
-			if(su2>su3)
-				max=su2;
-			else
-				max=su3;
+			System.out.print(n+" ");
+			//i++;
+			//if(i==5) break;
 		}*/
-		System.out.println(max);
-			
-		/*if(su1 > su2)
-		{
-			if(su1 > su3)
-				System.out.println(su1);
-			else
-				System.out.println(su3);
-		}
-		else
-		{
-			if(su2 > su3)
-				System.out.println(su2);
-			else
-				System.out.println(su3);
-		}*/
+		System.out.println("\n로또번호출력");
+		for(int i=0; i<5; i++)
+			System.out.print(num.get(i)+" ");
 	}
 
 }
