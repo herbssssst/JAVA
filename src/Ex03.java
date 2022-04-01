@@ -4,33 +4,34 @@ public class Ex03 {
 
 	public static void main(String[] args) 
 	{
-		//1. 5°³ÀÇ Á¤¼ö¸¦ ÀÔ·Â¹Ş¾Æ ¹è¿­¿¡ ÀúÀåÇÏ°í ÇÕ°ú Æò±ÕÀ» ±¸ÇÏ¼¼¿ä
-		//2. 5°³ÀÇ Á¤¼ö¸¦ ÀÔ·Â¹Ş¾Æ ¹è¿­¿¡ ÀúÀåÇÏ°í ÀÔ·Â¹ŞÀº Á¤¼ö Áß ÃÖ´ë°ª ÃÖ¼Ú°ª Ãâ·Â
+		//1. 5ê°œì˜ ì •ìˆ˜ë¥¼ ì…ë ¥ë°›ì•„ ë°°ì—´ì— ì €ì¥í•˜ê³  í•©ê³¼ í‰ê· ì„ êµ¬í•˜ì„¸ìš”
+		//2. 5ê°œì˜ ì •ìˆ˜ë¥¼ ì…ë ¥ë°›ì•„ ë°°ì—´ì— ì €ì¥í•˜ê³  ì…ë ¥ë°›ì€ ì •ìˆ˜ ì¤‘ ìµœëŒ€ê°’ ìµœì†Ÿê°’ ì¶œë ¥
 		Scanner in = new Scanner(System.in);
 		int [] num = new int[5];
 		int sum=0;
-		
-		System.out.print("5°³ÀÇ Á¤¼ö¸¦ ÀÔ·Â :");
+
+		System.out.print("5ê°œì˜ ì •ìˆ˜ë¥¼ ì…ë ¥ :");
 		for(int i=0; i<5; i++)
 		{
 			num[i] = in.nextInt();
 			sum += num[i];
 		}
 		double avg = (double)sum / num.length;
-		System.out.println("ÇÕ :"+sum);
-		System.out.print("Æò±Õ :"+avg);
-				
-		int max=num[0], min=num[0]; //¹®Á¦ 2
+		System.out.println("í•© :"+sum);
+		System.out.println("í‰ê·  :"+avg);
+
+		int max=num[0], min=num[0]; //ë¬¸ì œ 2
 		for(int i=0; i<num.length; i++)
 		{
 			if(max<num[i])
 				max = num[i];
-			
+
 			if(min>num[i])
 				min = num[i];
-			
+
 		}
-		System.out.println(max);
+		System.out.println("ìµœëŒ€ê°’ : "+max);
+		System.out.println("ìµœì†Ÿê°’ : "+min);
 	}
 
 }
