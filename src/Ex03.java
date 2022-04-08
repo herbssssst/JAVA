@@ -1,37 +1,60 @@
-import java.util.Scanner;
+//»ı¼ºÀÚ ¿¬½À
+class Circle
+{
+	double radius;
+	String name;
+	
+	public double getArea()
+	{
+		return radius*radius*3.14;
+	}
+	//ÃÊ±âÈ­¸¦ ¸ñÀûÀ¸·Î »ı¼ºÀÚ Á¤ÀÇ
+	//1. Å¬·¡½ºÀÇ ÀÌ¸§µ¿ÀÏ 2. ¹İÈ¯ÇüÅÂ°¡ ¾ø´Â Æ¯¼ö ¸Ş¼Òµå
+	public Circle()
+	{
+		name="¿ø";
+		radius=1.0;
+	}
+	public Circle(String n, double r) //»ı¼ºÀÚ, void ¸¦ ÁÖ¸é ÇÔ¼ö°¡ µÊ Àı´ë void ±İÁö
+	{
+		name = n;
+		radius = r;
+	}
+	//3. ¶È°°Àº ÀÌ¸§ÀÇ »ı¼ºÀÚ´Â ¿©·¯°³ ÁÙ ¼ö ÀÖ´Ù. (´Ü, ¸Å°³º¯¼öÀÇ °³¼ö°¡ ´Ù¸£°Å³ª Å¸ÀÔÀÌ ´Ş¶ó¾ß ÇÔ)
+	public Circle(String n)
+	{
+		name = n;
+	}
+	public Circle(double r)
+	{
+		radius = r;
+	}
+	public void print()
+	{
+		System.out.println(name+"ÀÇ ¸éÀûÀº "+getArea());
+	}
+}
 
 public class Ex03 {
 
 	public static void main(String[] args) 
 	{
-		//1. 5ê°œì˜ ì •ìˆ˜ë¥¼ ì…ë ¥ë°›ì•„ ë°°ì—´ì— ì €ì¥í•˜ê³  í•©ê³¼ í‰ê· ì„ êµ¬í•˜ì„¸ìš”
-		//2. 5ê°œì˜ ì •ìˆ˜ë¥¼ ì…ë ¥ë°›ì•„ ë°°ì—´ì— ì €ì¥í•˜ê³  ì…ë ¥ë°›ì€ ì •ìˆ˜ ì¤‘ ìµœëŒ€ê°’ ìµœì†Ÿê°’ ì¶œë ¥
-		Scanner in = new Scanner(System.in);
-		int [] num = new int[5];
-		int sum=0;
-
-		System.out.print("5ê°œì˜ ì •ìˆ˜ë¥¼ ì…ë ¥ :");
-		for(int i=0; i<5; i++)
-		{
-			num[i] = in.nextInt();
-			sum += num[i];
-		}
-		double avg = (double)sum / num.length;
-		System.out.println("í•© :"+sum);
-		System.out.println("í‰ê·  :"+avg);
-
-		int max=num[0], min=num[0]; //ë¬¸ì œ 2
-		for(int i=0; i<num.length; i++)
-		{
-			if(max<num[i])
-				max = num[i];
-
-			if(min>num[i])
-				min = num[i];
-
-		}
-		System.out.println("ìµœëŒ€ê°’ : "+max);
-		System.out.println("ìµœì†Ÿê°’ : "+min);
+		 
+		Circle c1 = new Circle("ÇÇÀÚ", 10.0);
+		Circle c2 = new Circle("µµ³Ó"); //³ĞÀÌ´Â 0 >> ¼ıÀÚ´Â ÃÊ±âÈ­ ½ÃÅ°Áö ¾ÊÀ¸¸é 0 ³ª¿È
+		Circle c3 = new Circle(5.0); //ÀÌ¸§ Null >> ÃÊ±âÈ­ ½ÃÅ°Áö ¾Ê´Â ¹®ÀÚ´Â Null ³ª¿È
+		Circle c4 = new Circle(); //»ı¼ºÀÚ°¡ ÇÏ³ª¶óµµ ÀÖÀ¸¸é µğÆúÆ®»ı¼ºÀÚ »ç¿ë ¸øÇÔ, ¸ÇÀ§¿¡ Àú°Å ÀÖÀ¸¸é °¡´É
+		c1.print();
+		c2.print();
+		c3.print();
 	}
 
 }
+/*
+public Student(String hak, String name, int ag)
+{
+	this.hakbun = hak; //this : ÀÚ±â ÀÚ½ÅÀ» °¡ÁöÅ°´Â ·¹ÆÛ·±½º
+	this.name = name; //º¯¼ö ÀÌ¸§ÀÌ °°À¸¸é ¿À·ù´Â ¾È ¶ßÁö¸¸ °æ°í! 
+	this.age=ag;
+}
+*/
