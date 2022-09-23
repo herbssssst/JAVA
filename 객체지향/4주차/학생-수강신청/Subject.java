@@ -21,11 +21,11 @@ public class Subject {
 	}
 	void print()
 	{
-		System.out.format("[%s] %s %dÇÐ³â (%s%s)\n", code, title, year, date, time);
+		System.out.format("[%s] %s %dí•™ë…„ (%s%s)\n", code, title, year, date, time);
 	}
 	boolean matches(String token)
 	{
-		if(code.contentEquals(token) || title.contentEquals(token) ||
+		if(code.contains(token) || title.contains(token) ||
 				token.equals(""+year) || token.equals(date) || token.equals(time))
 			return true;
 		
