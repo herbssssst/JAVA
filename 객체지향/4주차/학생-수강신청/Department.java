@@ -11,22 +11,23 @@ public class Department
 	
 	void run()
 	{
-		//readAllSubject();
+		readAllSubject();
 		readAll();
-		//printAllSubject();
+		printAllSubject();
 		printAll();
+		searchStudentBySubject();
+		searchDay();
 		//search();
 	}
 	void readAll()
 	{
-		Student st = null;
 		int id = 0;
 		while(true)
 		{
 			id = scan.nextInt();
 			if(id==0)
 				break;
-			st = new Student(id);
+			Student st = new Student(id);
 			st.read(scan, this);
 			studentList.add(st);
 		}
@@ -34,12 +35,11 @@ public class Department
 	void readAllSubject()
 	{
 		String token = null;
-		Subject sub = null;
 		while(true) {
 			token = scan.next();
 			if(token.equals("end"))
 				break;
-			sub = new Subject(token);
+			Subject sub = new Subject(token);
 			sub.read(scan);
 			subList.add(sub);
 		}
@@ -47,19 +47,23 @@ public class Department
 	
 	void printAll()
 	{
-		int i=1;
+		//int i=1;
 		for(Student st : studentList)
 		{
-			System.out.printf("%2d) ", i++);
+			//System.out.printf("%2d) ", i++);
 			st.print();
 		}
 			
 	}
 	void printAllSubject()
 	{
+		System.out.println();
 		for(Subject s : subList)
 			s.print();
+		
+		System.out.println();
 	}
+	
 	void search()
 	{
 		String line = null;
@@ -68,7 +72,7 @@ public class Department
 		
 		while (true) 
 		{
-			System.out.print("°Ë»öÅ°¿öµå ¿©·¯°³(ºóÄ­À¸·Î ±¸ºĞ):");
+			System.out.print("ê²€ìƒ‰í‚¤ì›Œë“œ ì—¬ëŸ¬ê°œ(ë¹ˆì¹¸ìœ¼ë¡œ êµ¬ë¶„):");
 			line = scan.nextLine();
 			kwdArr = line.split(" ");
 			
@@ -79,21 +83,21 @@ public class Department
 			}
 		}
 	}
-	/*void searchStudentBySubject()
+	void searchStudentBySubject()
 	{
 		String kwd;
-		System.out.print("°Ë»öÇÒ °ú¸ñ : ");
+		System.out.print("ê²€ìƒ‰í•  ê³¼ëª© : ");
 		kwd = scan.next();
 		Subject sub = null;
 		for(Subject s : subList)
 		{
 			if(s.matches(kwd))
 				sub = s;
-		}
-		if(sub == null)
-		{
-			System.out.println("¾ø´Â °ú¸ñ¸íÀÔ´Ï´Ù");
-			return;
+			if(sub == null)
+			{
+				System.out.println("ì—†ëŠ” ê³¼ëª©ëª…ì…ë‹ˆë‹¤");
+				return;
+			}
 		}
 		sub.print();
 		for(Student st : studentList)
@@ -101,15 +105,35 @@ public class Department
 			if(st.containsSubject(sub))
 				st.print();
 		}
-	}*/
-	Subject findSubject(String code)
+	}
+	void searchDay()
 	{
-		for(Subject s : subList) {
-			if(s.matches(code))
-				return s;
+		String kwd;
+		System.out.print("ê²€ìƒ‰í•  ìš”ì¼ : ");
+		kwd = scan.next();
+		Subject sub = null;
+		System.out.format("%sìš”ì¼ ê³¼ëª©ì„ ìˆ˜ê°•í•˜ëŠ” í•™ìƒ :", kwd);
+		for(Student st : studentList)
+		{
+			if(st.matchesDay(kwd))
+				st.printStudent();
+		}
+	}
+	
+	public Subject findSubject(String code)
+	{
+		for(Subject sub : subList) {
+			if(sub.matches(code))
+				return sub;
 		}
 		return null;
 	}
+	/*public Student findStudent(int num)
+	{
+		if(num <= 0 || num>studentList.size())
+			return null;
+		return studentList.get(num-1);
+	}*/
 	
 	public static void main(String[] args) 
 	{
