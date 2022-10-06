@@ -19,6 +19,7 @@ public class BookStore {
 		Manageable item = null;
 		while(filein.hasNext()){
 			int type = filein.nextInt();
+			if(n == 0) break;
 			switch(type){
 				case 1: item = new Book(); break;
 				case 2: item = new EBook(); break;
@@ -72,7 +73,7 @@ public class BookStore {
 			filein = new Scanner(new File(filename));
 		}
 		catch(Exception e) {
-			System.out.printf("ÆÄÀÏ ¿ÀÇÂ ¿À·ù : %s\n", filename);
+			System.out.printf("Ã†Ã„Ã€Ã Â¿Ã€Ã‡Ã‚ Â¿Ã€Â·Ã¹ : %s\n", filename);
 			System.exit(0);
 		}
 		return filein;
