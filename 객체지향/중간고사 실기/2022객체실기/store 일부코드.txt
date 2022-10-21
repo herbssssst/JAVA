@@ -1,0 +1,22 @@
+public class Store {
+	static public Scanner sc = new Scanner(System.in);
+	public ArrayList<BodyItem> bList = new ArrayList<>();
+	public ArrayList<Order> oList = new ArrayList<>();
+	
+    void run() {
+        readAllItems();
+        printAllItems();
+        readAllOrders();
+        printAllOrders();
+		search();
+    }
+    private void search() {
+		System.out.println("=========== 검색 메뉴 ============");
+		while (true) {
+			System.out.print("(1) 제품   (2) 주문   => ");
+			int menu = sc.nextInt();
+			if (menu == 1) searchItem();
+			else if (menu == 2) searchOrder();
+			else break;
+		}
+	}
